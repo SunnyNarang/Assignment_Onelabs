@@ -70,7 +70,8 @@ public class ImagesAdapter extends RecyclerView.Adapter<ImagesAdapter.ProductVie
             itemView.setOnClickListener(this);
             imageView = itemView.findViewById(R.id.image);
             imageView.getLayoutParams().height = height;
-            //imageView.setTransitionName("thumbnailTransition");
+            int postion = getAdapterPosition();
+            //imageView.setTransitionName(properties.get(postion).getUrl());
         }
 
 
