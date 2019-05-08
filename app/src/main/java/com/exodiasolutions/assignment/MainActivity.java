@@ -106,7 +106,7 @@ public class MainActivity extends AppCompatActivity {
                                     jsonArray = new JSONArray(new JSONObject(response).getString("results"));
                                 }
                                 for(int i= 0;i<jsonArray.length();i++){
-                                    String url = new JSONObject(jsonArray.getJSONObject(i).getString("urls")).getString("regular");
+                                    String url = new JSONObject(jsonArray.getJSONObject(i).getString("urls")).getString("small");
                                     arrayList.add(new ImagesData(url,null));
                                 }
                                 store.setValue(query,gson.toJson(arrayList));

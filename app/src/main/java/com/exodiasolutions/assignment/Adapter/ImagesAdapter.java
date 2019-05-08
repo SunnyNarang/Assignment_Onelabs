@@ -17,6 +17,7 @@ import android.widget.ImageView;
 import com.exodiasolutions.assignment.FullImage;
 import com.exodiasolutions.assignment.Model.ImagesData;
 import com.exodiasolutions.assignment.R;
+import com.google.gson.Gson;
 import com.squareup.picasso.Picasso;
 
 import java.io.ByteArrayOutputStream;
@@ -86,6 +87,8 @@ public class ImagesAdapter extends RecyclerView.Adapter<ImagesAdapter.ProductVie
                 bitmap.compress(Bitmap.CompressFormat.PNG, 100, bStream);
                 byte[] byteArray = bStream.toByteArray();
                 intent.putExtra("image", byteArray);
+                intent.putExtra("pos",""+postion);
+                intent.putExtra("images",new Gson().toJson(this.properties));
                 intent.putExtra("url",this.properties.get(postion).getUrl());
                 Pair<View, String> pair1 = Pair.create((View) imageView, imageView.getTransitionName());
                 ActivityOptionsCompat optionsCompat = ActivityOptionsCompat.makeSceneTransitionAnimation((Activity) mCtx, pair1);
